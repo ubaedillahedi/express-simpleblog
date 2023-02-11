@@ -1,5 +1,13 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
+
+mongoose.set('strictQuery', false);
+mongoose.connect('mongodb://localhost:27017/simpleblog', {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+    // useCreateIndex: true
+})
 
 app.set('views', './src/views')
 app.set('view engine', 'ejs')
