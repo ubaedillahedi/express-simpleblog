@@ -4,6 +4,9 @@ const app = express()
 app.set('views', './src/views')
 app.set('view engine', 'ejs')
 
+app.use(express.urlencoded({
+    extended: false
+}))
 // untuk url static akan diarahkan kesitu
 app.use(express.static('public'))
 // setiap ada url dengan kata css,js atau img akan diarahkan sesuai dengan foldernya
