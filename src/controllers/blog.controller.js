@@ -21,3 +21,7 @@ exports.store = async (req, res) => {
     }
 
 }
+
+exports.show = (req, res) => {
+    res.render('blog/show')
+}
