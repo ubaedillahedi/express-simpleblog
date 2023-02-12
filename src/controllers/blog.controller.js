@@ -62,3 +62,14 @@ exports.update = async (req, res) => {
         res.render(`blog/${id}/edit`)
     }
 }
+
+exports.delete = async (req, res) => {
+    const id = req.params.id
+    try {
+        await Article.findByIdAndDelete(id)
+        res.redirect('/')
+    } catch (error) {
+        console.log('Error from delete article: ', error)
+        res.redirect('/')
+    }
+}

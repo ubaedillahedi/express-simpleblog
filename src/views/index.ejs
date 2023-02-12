@@ -39,6 +39,8 @@
                                 on September 24, 2022
                             </p>
                             <a href="<%= `/blog/${article.id}/edit` %>" class="btn btn-sm btn-info">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="event.preventDefault();document.getElementById('form-delete-<%= article.id %>').submit()">Delete</button>
+                            <form action="/blog/<%= `${article.id}?_method=DELETE` %>" method="POST" id="form-delete-<%= article.id %>"></form>
                         </div>
                         <!-- Divider-->
                         <hr class="my-4" />

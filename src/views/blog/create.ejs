@@ -41,11 +41,11 @@
                             <label for="name">Title</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" name="subtitle" id="subtitle" type="text" />
+                            <input class="form-control mb-2" name="subtitle" id="subtitle" type="text" />
                             <label for="subtitle">Subtitle</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="content" name="content"></textarea>
+                            <textarea class="form-control" id="mytextarea" name="content"></textarea>
                             <label for="content">Content</label>
                         </div>
                         <br />
@@ -63,5 +63,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+                selector: '#mytextarea'
+            });
+        </script>
     </body>
 </html>
