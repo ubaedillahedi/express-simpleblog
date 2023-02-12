@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/simpleblog', {
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({
     extended: false
 }))
+app.use(methodOverride('_method'))
 // untuk url static akan diarahkan kesitu
 app.use(express.static('public'))
 // setiap ada url dengan kata css,js atau img akan diarahkan sesuai dengan foldernya

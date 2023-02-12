@@ -34,3 +34,31 @@ exports.show = async (req, res) => {
         res.redirect('/')   
     }
 }
+
+exports.edit = async (req, res) => {
+    const id = req.params.id
+    try {
+        let article = await Article.findById(id)
+        res.render('blog/edit', {
+            article: article
+        })
+    } catch (error) {
+        console.log('Error from edit article: ', error)
+        res.redirect('/')   
+    }
+}
+
+exports.update = async (req, res) => {
+    const id = req.params.id
+    try {
+        let article = await Article.findById(id)
+        article.title = req.body.title
+        article.subtitle = req.body.subtitle
+        article.content = req.body.content
+        article.save()
+        res.redirect('/')
+    } catch (error) {
+        console.log('Error from update article: ', error)
+        res.render(`blog/${id}/edit`)
+    }
+}
