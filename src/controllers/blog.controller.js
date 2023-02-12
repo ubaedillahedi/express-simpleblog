@@ -16,12 +16,21 @@ exports.store = async (req, res) => {
         console.log('Success insert data!')
         res.redirect('/')
     } catch (error) {
-        console.log('Error when save to db: ' + error);
+        console.log('Error when save to db: ', error);
         res.render('/blog/create')
     }
 
 }
 
-exports.show = (req, res) => {
-    res.render('blog/show')
+exports.show = async (req, res) => {
+    const id = req.params.id
+    try {
+        let article = await Article.findById(id)
+        res.render('blog/show', {
+            article: article
+        })
+    } catch (error) {
+        console.log('Error from show article: ', error)
+        res.redirect('/')   
+    }
 }
